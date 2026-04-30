@@ -27,3 +27,12 @@ export type Order = {
     expiryYear: number;
     status: string;
 };
+
+export type OrderItem = {
+    id: number;
+    orderid: number;
+    itemid: number;
+    firstName: string;
+    notes: string;
+    price: number;
+};

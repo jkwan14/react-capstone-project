@@ -56,15 +56,16 @@ async function handleSubmit(event: React.FormEvent) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(
-        cartItems.map((item) => ({
-          orderId: order.id,
-          menuItemId: item.id,
-          quantity: item.quantity,
+        cartItems.flatMap((item) => Array.from({ length: item.quantity }, () => ({
+          orderid: order.id,
+          itemid: item.id,
+          firstName: 'Guest',
           notes: item.notes,
           price: item.price,
         }))
-      ),
-    });
+      )
+    ),
+});
 
     if (!itemsResponse.ok) {
       throw new Error('Failed to add order items');
@@ -83,7 +84,7 @@ async function handleSubmit(event: React.FormEvent) {
                 {cartItems.map((item) => (
                     <div key={item.id} className='checkout-item'>
                         <h3>{item.name}</h3>
-                        <p>{item.quantity} * ${item.price.toFixed(2)}</p>
+                        <p>{item.quantity} x ${item.price.toFixed(2)}</p>
                         <label>
                             Special instructions:
                             <input value={item.notes} onChange={(event) => updateNotes(item.id, event.target.value)}
