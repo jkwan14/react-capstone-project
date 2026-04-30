@@ -19,9 +19,6 @@ function Checkout() {
 
 async function handleSubmit(event: React.FormEvent) {
   event.preventDefault();
-  console.log('Place order licked');
-  console.log( 'cart items:' , cartItems);
-  console.log('Subtotal:', total);
 
   const tax = total * 0.06;
   const tip = total * 0.20;
