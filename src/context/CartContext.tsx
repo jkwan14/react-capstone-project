@@ -21,6 +21,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 return currentItems.map((cartItem) => cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem);
 
             }
+            
             return [...currentItems, {
                 ...item, quantity: 1, notes: ""
             }];
