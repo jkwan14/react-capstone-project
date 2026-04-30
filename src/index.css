@@ -110,6 +110,26 @@ code {
   background: var(--code-bg);
 } */
 
+.header {
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+}
+
+.header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.headera:hover {
+  text-decoration: underline;
+}
+
 .menu-grid {
   display: flex;
   flex-wrap: wrap;

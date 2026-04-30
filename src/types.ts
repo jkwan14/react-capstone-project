@@ -12,3 +12,18 @@ export type CartItem = MenuItem & {
     quantity: number;
     notes: string;
 };
+
+export type Order = {
+    id: number;
+    userId: number;
+    ordertime: string | null;
+    pickuptime: string | null;
+    area: string;
+    location: string;
+    tax: number;
+    tip: number;
+    pan: string;
+    expiryMonth: number;
+    expiryYear: number;
+    status: string;
+};
