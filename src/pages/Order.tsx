@@ -71,10 +71,10 @@ return (
     <h2>Receipt Page</h2>
     <p>Order ID: {order.id}</p>
     <p>Order time: {order.ordertime ? new Date(order.ordertime).toLocaleString() : 'Not available'}</p>
-    <p>Area: {order.area}</p>
-    <p>Location: {order.location}</p>
-    <p>Tax: {order.tax.toFixed(2)}</p>
-    <p>Tip: {order.tip.toFixed(2)}</p>
+    {/* <p>Area: {order.area}</p> */}
+    {/* <p>Location: {order.location}</p> */}
+    <p>Tax: ${order.tax.toFixed(2)}</p>
+    <p>Tip: ${order.tip.toFixed(2)}</p>
     <p>Status: {order.status}</p>
     <h3>Items</h3>
     <ul>
