@@ -1,11 +1,16 @@
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 
 
 function Checkout() {
     const navigate = useNavigate();
     const { cartItems, clearCart, updateNotes, total } = useCart();
+    const [pan, setPan] = useState('');
+    const [expiryMonth, setExpiryMonth] = useState('');
+    const [expiryYear, setExpiryYear] = useState('');
+    const [cvv, setCvv] = useState('');
 
     if (cartItems.length === 0) {
         return (
@@ -35,11 +40,11 @@ async function handleSubmit(event: React.FormEvent) {
         pickuptime: null,
         area: 'Theater 1',
         location: 'Table 37',
-        tax,
-        tip,
-        pan: '4026664388908977',
-        expiryMonth: 9,
-        expiryYear: 2028,
+        tax: tax,
+        tip: tip,
+        pan: pan,
+        expiryMonth: Number(expiryMonth),
+        expiryYear: Number(expiryYear),
         status: 'pending',
       }),
     });
@@ -93,6 +98,40 @@ async function handleSubmit(event: React.FormEvent) {
                     </div>
                 ))}
                 <h3>Subtotal: ${total.toFixed(2)}</h3>
+                <div className='payment-form'>
+                <h3>Payment Information</h3>
+                <label>
+                    Card Number:
+                    <input value={pan}
+                    onChange={(event) => setPan(event.target.value)}
+                    placeholder='Card number'
+                    />
+                </label>
+
+                <label>
+                    Expiry Month:
+                    <input value={expiryMonth}
+                    onChange={(event) => setExpiryMonth(event.target.value)}
+                    placeholder='MM'
+                    />
+                </label>
+
+                <label>
+                    Expiry Year:
+                    <input value={expiryYear}
+                    onChange={(event) => setExpiryYear(event.target.value)}
+                    placeholder='YYYY'
+                    />
+                </label>
+
+                <label>
+                    CVV:
+                    <input value={cvv}
+                    onChange={(event) => setCvv(event.target.value)}
+                    placeholder='CVV'
+                    />
+                </label>
+                </div>
             </section>
             
                 <button type='submit'>Place Order</button>

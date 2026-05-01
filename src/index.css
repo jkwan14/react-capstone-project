@@ -181,3 +181,16 @@ main {
   margin-top: 0.5rem;
   padding: 0.5rem;
 }
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.payment-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
