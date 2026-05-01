@@ -80,7 +80,7 @@ return (
     <ul>
         {receiptItems.map((item) => (
             <li key={item.itemid}>
-                {item.quantity} x {getMenuItemName(item.itemid)} - (${item.price.toFixed(2)})
+                {item.quantity} x {getMenuItemName(item.itemid)} - (${item.price.toFixed(2)} each)
                 {item.notes && <span> - Notes: { item.notes}</span>}
             </li>
         ))}
