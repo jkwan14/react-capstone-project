@@ -60,6 +60,10 @@ function Order() {
     {}
 );
  const receiptItems = Object.values(groupedItems);
+ const subtotal = receiptItems.reduce(
+    (sum, item) => sum + item.price * item.quantity, 0
+ );
+ const receiptTotal = subtotal + order.tax + order.tip;
 
  function getMenuItemName(itemid: number) {
     const match = menuItems.find((item) => item.id === itemid);
@@ -73,8 +77,7 @@ return (
     <p>Order time: {order.ordertime ? new Date(order.ordertime).toLocaleString() : 'Not available'}</p>
     {/* <p>Area: {order.area}</p> */}
     {/* <p>Location: {order.location}</p> */}
-    <p>Tax: ${order.tax.toFixed(2)}</p>
-    <p>Tip: ${order.tip.toFixed(2)}</p>
+    
     <p>Status: {order.status}</p>
     <h3>Items</h3>
     <ul>
@@ -85,6 +88,10 @@ return (
             </li>
         ))}
     </ul>
+    <h3>Subtotal: ${subtotal.toFixed(2)}</h3>
+    <p>Tax (6%): ${order.tax.toFixed(2)}</p>
+    <p>Tip (20%): ${order.tip.toFixed(2)}</p>
+    <h2>Total: ${receiptTotal.toFixed(2)}</h2>
     </section>
 );
 }

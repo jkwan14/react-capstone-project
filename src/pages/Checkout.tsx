@@ -10,7 +10,10 @@ function Checkout() {
     const [pan, setPan] = useState('');
     const [expiryMonth, setExpiryMonth] = useState('');
     const [expiryYear, setExpiryYear] = useState('');
-    const [cvv, setCvv] = useState('');
+    const [cvv, setCvv] = useState(''); 
+    const tax = total * 0.06;
+    const tip = total * 0.20;
+    const finalTotal = total + tax + tip;
 
     if (cartItems.length === 0) {
         return (
@@ -25,8 +28,6 @@ function Checkout() {
 async function handleSubmit(event: React.FormEvent) {
   event.preventDefault();
 
-  const tax = total * 0.06;
-  const tip = total * 0.20;
 
   try {
     const orderResponse = await fetch('/api/orders', {
@@ -98,6 +99,10 @@ async function handleSubmit(event: React.FormEvent) {
                     </div>
                 ))}
                 <h3>Subtotal: ${total.toFixed(2)}</h3>
+                <p>Tax (6%): ${tax.toFixed(2)}</p>
+                <p>Tip (20%): ${tip.toFixed(2)}</p>
+                <h2>Total: ${finalTotal.toFixed(2)}</h2>
+
                 <div className='payment-form'>
                 <h3>Payment Information</h3>
                 <label>
