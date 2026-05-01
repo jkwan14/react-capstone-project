@@ -110,6 +110,16 @@ code {
   background: var(--code-bg);
 } */
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+main {
+  padding: 1rem;
+}
+
 .header {
   background-color: #222;
   color: white;
@@ -126,8 +136,12 @@ code {
   text-decoration: none;
 }
 
-.headera:hover {
+.header a:hover {
   text-decoration: underline;
+}
+
+.header h1 {
+  margin: 0 0 1rem;
 }
 
 .menu-grid {
@@ -151,4 +165,19 @@ code {
 
 .menu-card-content {
   padding:1rem;
+}
+
+.menu-card button {
+  cursor: pointer;
+}
+
+.checkout-item {
+  border-bottom: 1px solid #add;
+  padding: 1rem 0;
+}
+
+.checkout-item input {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
 }

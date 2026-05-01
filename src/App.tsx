@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import Order from './pages/Order';
 import Orders from './pages/Orders';
 import Header from './components/Header';
-import './App.css'
+
 
 function App() {
   return (

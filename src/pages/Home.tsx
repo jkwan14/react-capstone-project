@@ -36,7 +36,7 @@ function Home() {
 return (
     <section>
         <h2>Menu</h2>
-        <div>
+        <div className='menu-grid'>
         {menuItems.map((item) => (
             <MenuItemCard key={item.id} item={item} />
             
