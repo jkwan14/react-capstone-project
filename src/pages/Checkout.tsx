@@ -28,6 +28,11 @@ function Checkout() {
 async function handleSubmit(event: React.FormEvent) {
   event.preventDefault();
 
+  if (!pan || !expiryMonth || !expiryYear || !cvv) {
+    alert('Please fill out all payment information.');
+    return;
+  }
+
 
   try {
     const orderResponse = await fetch('/api/orders', {
@@ -85,7 +90,7 @@ async function handleSubmit(event: React.FormEvent) {
 }
     return (
         <form onSubmit={handleSubmit}>
-        <section>
+        <section className='page-container'>
                 <h2>Checkout</h2>
                 {cartItems.map((item) => (
                     <div key={item.id} className='checkout-item'>

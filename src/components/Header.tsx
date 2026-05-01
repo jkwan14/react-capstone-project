@@ -7,7 +7,7 @@ function Header() {
 
     return (
         <header className='header'>
-            <h1>Jay's Restaurant App</h1>
+            <h1>Jay's Restaurant</h1>
             <nav>
                 <Link to='/'>Home</Link>
                 <Link to='/checkout'>Checkout ({itemCount})</Link>

@@ -34,7 +34,7 @@ function Home() {
         return <p>{error}</p>;
     }
 return (
-    <section>
+    <section className='page-container'>
         <h2>Menu</h2>
         <div className='menu-grid'>
         {menuItems.map((item) => (

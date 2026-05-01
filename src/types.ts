@@ -13,7 +13,7 @@ export type CartItem = MenuItem & {
     notes: string;
 };
 
-export type Order = {
+export type OrderType = {
     id: number;
     userId: number;
     ordertime: string | null;

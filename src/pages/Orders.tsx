@@ -1,10 +1,10 @@
 import  { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { Order } from '../types';
+import type { OrderType } from '../types';
 
 
 function Orders() {
-    const [orders, setOrders] = useState<Order[]>([]);
+    const [orders, setOrders] = useState<OrderType[]>([]);
 
     useEffect(() => {
         async function fetchOrders() {
@@ -17,11 +17,11 @@ function Orders() {
     }, []);
 
 return (
-    <section>
+    <section className='page-container'>
         <h2>Order History</h2>
         {orders.map((order) => (
             <div key={order.id}>
-                <Link to={`/orders/${order.id}`}>Order #{order.id} - {order.status}</Link>
+                <Link to={`/orders/${order.id}`}>Order #{order.id}</Link>
             </div>
         ))}
 

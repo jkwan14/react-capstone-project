@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import type { Order, OrderItem, MenuItem } from '../types';
+import type { OrderType, OrderItem, MenuItem } from '../types';
 
 function Order() {
 
-    const [order, setOrder] = useState<Order | null>(null);
+    const [order, setOrder] = useState<OrderType | null>(null);
     const { orderId } = useParams();
     const [items, setItems] = useState<OrderItem[]>([]);
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
@@ -71,14 +71,14 @@ function Order() {
  }
 
 return (
-    <section>
+    <section className='page-container'>
     <h2>Receipt Page</h2>
     <p>Order ID: {order.id}</p>
     <p>Order time: {order.ordertime ? new Date(order.ordertime).toLocaleString() : 'Not available'}</p>
     {/* <p>Area: {order.area}</p> */}
     {/* <p>Location: {order.location}</p> */}
     
-    <p>Status: {order.status}</p>
+    {/* <p>Status: {order.status}</p> */}
     <h3>Items</h3>
     <ul>
         {receiptItems.map((item) => (
